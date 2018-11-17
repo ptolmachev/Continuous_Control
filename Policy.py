@@ -82,7 +82,7 @@ class Policy(nn.Module):
         x = state
         for i in range(len(self.layers)):
             x = self.layers[i](x).float()
-        n = 10*self.eps*torch.from_numpy(self.rand_process.noise()).float()
+        n = 5*self.eps*torch.from_numpy(self.rand_process.noise()).float()
         self.rand_process.log.append(n)
         res = (x + n)
         return torch.clamp(res,-1.0,1.0)
