@@ -66,7 +66,7 @@ class Agent():
         state = torch.from_numpy(state.astype(dtype = np.float)).float().to(device)
         action_to_take = self.actor_local(state)
         return action_to_take
-
+#h
     def update_Qnet_and_policy(self, experiences):
         states, actions, rewards, next_states, dones = experiences
         next_actions = self.actor_target(next_states)
