@@ -44,6 +44,16 @@ def denormalize(vec, high, low):
     else:
         return (np.array(vec)*(np.array(high)-np.array(low)) + (np.array(high)+np.array(low)))/2
 
+def distance_metric(actions1, actions2):
+    """
+    Compute "distance" between actions taken by two policies at the same states
+    Expects numpy arrays
+    """
+    diff = actions1-actions2
+    mean_diff = np.mean(np.square(diff), axis=0)
+    dist = np.sqrt(np.mean(mean_diff))
+    return dist
+
 def interact_and_train(Agent, Env, num_episodes, max_t, save_to):
     state_low =  env.observation_space.low
     state_high =  env.observation_space.high
@@ -56,8 +66,10 @@ def interact_and_train(Agent, Env, num_episodes, max_t, save_to):
         score = 0
         state_real = Env.reset()  # reset the environment SSS
         state = normalize(state_real, state_high, state_low)
-        action = Agent.choose_action(state_real).detach()
-        action_real = denormalize(action, action_high, action_low)  # AAA
+        action, action_perturbed = Agent.choose_action(state_real)
+        action = action.detach().numpy()
+        action_perturbed = action_perturbed.detach().numpy()
+        action_real = denormalize(action_perturbed, action_high, action_low)  # AAA
         done = False
         for t in range(max_t):
             env_info = Env.step(action_real)
@@ -69,8 +81,15 @@ def interact_and_train(Agent, Env, num_episodes, max_t, save_to):
             Agent.memorize_experience(state, action, reward, next_state, done)
             Agent.learn_from_past_experiences()
             state = next_state
-            action = Agent.choose_action(state).detach() #AAA
-            action_real = denormalize(action, action_high, action_low)  # get new action form the next state
+            action, action_perturbed = Agent.choose_action(state) #AAA
+            action = action.detach().numpy()
+            action_perturbed = action_perturbed.detach().numpy()
+            # if (distance_metric(action, action_perturbed)) > 0.2:
+            #     Agent.actor_local.eps /= 1.01
+            # else:
+            #     Agent.actor_local.eps *= 1.01
+
+            action_real = denormalize(action_perturbed, action_high, action_low)  # get new action form the next state
             if done:  # exit loop if episode finished
                 break
         Agent.update_eps()
@@ -79,7 +98,7 @@ def interact_and_train(Agent, Env, num_episodes, max_t, save_to):
         print('\rEpisode {}\tAverage Score: {:.2f}\tCurrent Score : {}'.format(e + 1, np.mean(scores_window), score), end="")
         if (e + 1) % 100 == 0:
             print('\rEpisode {}\tAverage Score: {:.2f}'.format(e + 1, np.mean(scores_window)))
-        if (np.mean(scores_window) >= 90 and (np.mean(scores_window) > best_score) ):
+        if (np.mean(scores_window) >= 200 and (np.mean(scores_window) > best_score) ):
             best_score = np.mean(scores_window)
             print('\nEnvironment achieved average score {:.2f} in {:d} episodes!'.format(np.mean(scores_window),(e + 1)))
             file_name_q = str(save_to)  +'_' + str(np.round(np.mean(scores_window), 0)) + str('.qnt')
@@ -98,8 +117,10 @@ params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux
           'visual_mode' : False,
           'multiagent_mode' : False}
 
-env_name = 'LunarLanderContinuous-v2'
+env_name = 'Pendulum-v0'
 env = gym.make(env_name) #Pendulum-v0 #MountainCarContinuous-v0 #LunarLanderContinuous-v2
+
+# env_name = 'Reacher'
 # env = UnityEnv(params)
 
 observation = env.reset()

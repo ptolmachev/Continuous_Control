@@ -26,6 +26,8 @@ class QNetwork(nn.Module):
                 layer_size = self.arch_params['layers'][key]
                 list_of_layers.append(nn.Linear(prev_layer_size, layer_size))
                 prev_layer_size = layer_size
+            elif layer_type == 'LayerNorm':
+                list_of_layers.append(nn.LayerNorm(prev_layer_size))
             elif layer_type == 'ReLU':
                 list_of_layers.append(nn.ReLU())
             else:

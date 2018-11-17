@@ -27,10 +27,11 @@ class Agent():
         arch_params = OrderedDict(
             {'state_and_action_dims': (state_dim, action_dim),
                  'layers' : {
-                     'Linear_1': 128, 'ReLU_1': None,
-                     'Linear_2': 64, 'ReLU_2': None,
-                     'Linear_3': 32, 'ReLU_3': None,
-                     'Linear_4': action_dim
+                     # 'Linear_1': 128, 'ReLU_1': None,
+                     # 'Linear_2': 128, 'LayerNorm_2': 128, 'ReLU_2': None,
+                     'Linear_3': 32,'LayerNorm_3': 32, 'ReLU_3': None,
+                     'Linear_4': 16,'LayerNorm_4': 16, 'ReLU_4': None,
+                     'Linear_5': action_dim
                  }
              })
         self.critic_local = QNetwork(seed, arch_params).to(device)  # decision_maker
@@ -38,10 +39,12 @@ class Agent():
         arch_params = OrderedDict(
             {'state_and_action_dims': (state_dim, action_dim),
                  'layers' : {
-                     'Linear_1': 128, 'ReLU_1': None,
-                     'Linear_2': 64, 'ReLU_2': None,
-                     'Linear_3': 32, 'ReLU_3': None,
-                     'Linear_4': action_dim, 'Tanh_1' : None
+                     # 'Linear_1': 128, 'ReLU_1': None,
+                     # 'Linear_2': 128, 'LayerNorm_2': 128, 'ReLU_2': None,
+                     'Linear_3': 32, 'LayerNorm_3': 32, 'ReLU_3': None,
+                     'Linear_4': 16, 'LayerNorm_4': 16, 'ReLU_4': None,
+                     'Linear_5': action_dim, #,'ReLU_5': None, #Relu5?
+                     'Tanh_1' : None
                  }
              })
         self.actor_local = Policy(seed, arch_params).to(device)
@@ -64,17 +67,18 @@ class Agent():
     def choose_action(self,state):
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         state = torch.from_numpy(state.astype(dtype = np.float)).float().to(device)
-        action_to_take = self.actor_local(state)
-        return action_to_take
+        action_to_take, action_to_take_perturbed = self.actor_local(state)
+        return action_to_take, action_to_take_perturbed
+
     def update_Qnet_and_policy(self, experiences):
         states, actions, rewards, next_states, dones = experiences
-        next_actions = self.actor_target(next_states)
+        next_actions, next_actions_perturbed = self.actor_target(next_states)
         Q_targets_next = self.critic_target(next_states, next_actions)
         Q_targets = rewards + (self.gamma*Q_targets_next*(1 - dones))  # if done == True: second term is equal to 0
         Q_expected = self.critic_local(states, actions)
         self.optimizer_critic.zero_grad()
         self.optimizer_actor.zero_grad()
-        predicted_actions = self.actor_local(states) # new predicted actions, not the ones stored in buffer
+        predicted_actions, predicted_actions_perturbed = self.actor_local(states) # new predicted actions, not the ones stored in buffer
         loss_func = nn.MSELoss()
         loss_critic = loss_func(Q_expected, Q_targets.detach())
         loss_actor = -self.critic_local(states, predicted_actions).mean()

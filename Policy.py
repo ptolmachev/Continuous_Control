@@ -3,6 +3,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 
+
+
+
 class OUNoise:
     """Ornstein-Uhlenbeck process
     Attributes:
@@ -15,13 +18,13 @@ class OUNoise:
         https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process
     """
 
-    def __init__(self, action_dimension: int, mu=0.0, theta=0.15, sigma=0.3, seed=123) -> None:
+    def __init__(self, dimension: int, mu=0.0, theta=0.5, sigma=0.3, seed=123) -> None:
         """Initializes the noise """
-        self.action_dimension = action_dimension
+        self.dimension = dimension
         self.mu = mu
         self.theta = theta
         self.sigma = sigma
-        self.state = np.ones(self.action_dimension) * self.mu
+        self.state = np.ones(self.dimension) * self.mu
         self.reset()
         self.log = []
         np.random.seed(seed)
@@ -29,7 +32,7 @@ class OUNoise:
     def reset(self) -> None:
         """Resets the states(= noise) to mu
         """
-        self.state = np.ones(self.action_dimension) * self.mu
+        self.state = np.ones(self.dimension) * self.mu
 
     def noise(self) -> np.ndarray:
         """Returns a noise(= states)
@@ -56,8 +59,9 @@ class Policy(nn.Module):
         self.eps = 1.0
         self.eps_decay = 0.993
         keys = list(self.arch_params['layers'].keys())
-        self.rand_process = OUNoise(self.action_dim) #, mu = 0, theta = 0.5, sigma = 0.05
+        # self.rand_process = OUNoise(self.action_dim) #, mu = 0, theta = 0.5, sigma = 0.05
         list_of_layers = []
+        list_of_processes = []
 
         prev_layer_size = self.state_dim
         for i in range(len(self.arch_params['layers'])):
@@ -67,25 +71,39 @@ class Policy(nn.Module):
             if layer_type == 'Linear':
                 layer_size = self.arch_params['layers'][key]
                 list_of_layers.append(nn.Linear(prev_layer_size, layer_size))
+                # list_of_processes.append(OUNoise(layer_size,mu = 0, theta = 0.1, sigma = 0.05))
+                list_of_processes.append(None)
                 prev_layer_size = layer_size
+            elif layer_type == 'LayerNorm':
+                list_of_layers.append(nn.LayerNorm(prev_layer_size))
+                list_of_processes.append(None)
             elif layer_type == 'ReLU':
                 list_of_layers.append(nn.ReLU())
+                list_of_processes.append(None)
             elif layer_type == 'Tanh':
                 list_of_layers.append(nn.Tanh())
+                list_of_processes.append(OUNoise(layer_size)) #,mu = 0, theta = 0.1, sigma = 0.05
             else:
                 print("Error: got unspecified layer type: '{}'. Check your layers!".format(layer_type))
                 break
             self.layers = nn.ModuleList(list_of_layers)
+            self.layer_noises = list_of_processes
 
     def forward(self, state):  # get action values
         """Build a network that maps state -> action values."""
         x = state
+        y = state
+
         for i in range(len(self.layers)):
-            x = self.layers[i](x).float()
-        n = 5*self.eps*torch.from_numpy(self.rand_process.noise()).float()
-        self.rand_process.log.append(n)
-        res = (x + n)
-        return torch.clamp(res,-1.0,1.0)
+            if self.layer_noises[i] is not None:
+                n = self.eps * torch.from_numpy(self.layer_noises[i].noise()).float()
+            else:
+                n = 0
+
+            x = self.layers[i](x).float() + n
+            y = self.layers[i](y).float()
+
+        return torch.clamp(y,-1.0,1.0), torch.clamp(x,-1.0,1.0)
 
     def save(self, save_to):
         file = {'arch_params': self.arch_params,
