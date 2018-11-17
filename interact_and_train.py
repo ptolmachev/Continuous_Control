@@ -98,7 +98,7 @@ params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux
           'visual_mode' : False,
           'multiagent_mode' : False}
 
-env_name = 'MountainCarContinuous-v0'
+env_name = 'LunarLanderContinuous-v2'
 env = gym.make(env_name) #Pendulum-v0 #MountainCarContinuous-v0 #LunarLanderContinuous-v2
 # env = UnityEnv(params)
 
