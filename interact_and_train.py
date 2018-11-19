@@ -1,6 +1,3 @@
-import numpy as np
-import torch
-
 ##Quick hand-made solution of environment
 # import gym
 # env = gym.make('MountainCarContinuous-v0')
@@ -21,8 +18,7 @@ import torch
 #     done = info[2]
 # print("achieved_score = {}".format(score))
 
-
-from unityagents import UnityEnvironment
+from unity_env import UnityEnv
 import gym
 import random
 import numpy as np
@@ -30,7 +26,9 @@ from collections import deque
 import matplotlib.pyplot as plt
 from Agent import Agent
 from scipy.signal import savgol_filter
-from unity_env import UnityEnv
+from collections import OrderedDict
+import pickle
+from plotter import plotter
 
 def normalize(vec, high, low):
     if np.any(high == np.inf) or np.any(low == -np.inf):
@@ -44,103 +42,126 @@ def denormalize(vec, high, low):
     else:
         return (np.array(vec)*(np.array(high)-np.array(low)) + (np.array(high)+np.array(low)))/2
 
-def distance_metric(actions1, actions2):
-    """
-    Compute "distance" between actions taken by two policies at the same states
-    Expects numpy arrays
-    """
-    diff = actions1-actions2
-    mean_diff = np.mean(np.square(diff), axis=0)
-    dist = np.sqrt(np.mean(mean_diff))
-    return dist
-
-def interact_and_train(Agent, Env, num_episodes, max_t, save_to):
-    state_low =  env.observation_space.low
-    state_high =  env.observation_space.high
-    action_low =  env.action_space.low
-    action_high = env.action_space.high
+def interact_and_train(Agent, Env, params):
+    # state_low =  env.observation_space.low
+    # state_high =  env.observation_space.high
+    # action_low =  env.action_space.low
+    # action_high = env.action_space.high
+    num_episodes = params['num_episodes']
+    max_t = params['max_t']
+    save_to = params['save_to']
     scores = []
     scores_window = deque(maxlen=100)
     best_score = -np.inf
     for e in range(num_episodes):
         score = 0
-        state_real = Env.reset()  # reset the environment SSS
-        state = normalize(state_real, state_high, state_low)
-        action, action_perturbed = Agent.choose_action(state_real)
-        action = action.detach().numpy()
-        action_perturbed = action_perturbed.detach().numpy()
-        action_real = denormalize(action_perturbed, action_high, action_low)  # AAA
-        done = False
-        for t in range(max_t):
-            env_info = Env.step(action_real)
-            reward = env_info[1]  #RRR
-            next_state_real = env_info[0] #SSS
-            next_state = normalize(next_state_real,state_high, state_low)
-            done = env_info[2]
-            score += reward  # get the reward
-            Agent.memorize_experience(state, action, reward, next_state, done)
-            Agent.learn_from_past_experiences()
-            state = next_state
-            action, action_perturbed = Agent.choose_action(state) #AAA
-            action = action.detach().numpy()
-            action_perturbed = action_perturbed.detach().numpy()
-            # if (distance_metric(action, action_perturbed)) > 0.2:
-            #     Agent.actor_local.eps /= 1.01
-            # else:
-            #     Agent.actor_local.eps *= 1.01
+        states = np.array(Env.reset())  # reset the environment SSS
 
-            action_real = denormalize(action_perturbed, action_high, action_low)  # get new action form the next state
-            if done:  # exit loop if episode finished
+        actions, actions_perturbed = Agent.choose_action(states)
+        actions = actions.detach().numpy()
+        actions_perturbed = actions_perturbed.detach().numpy()
+        if (actions_perturbed.shape[0] != 1):
+            actions_perturbed = actions_perturbed.tolist()
+        dones = False*np.ones(len(actions_perturbed))
+        t = 0
+        while not (np.any(dones) == True):
+            t+=1
+            next_states, rewards, dones, infos = Env.step(actions_perturbed)
+            for i in range(states.shape[0]):
+                Agent.memorize_experience(states[i], actions[i], rewards[i], next_states[i], dones[i])
+            Agent.learn_from_past_experiences()
+            states = np.array(next_states)
+
+            actions, actions_perturbed = Agent.choose_action(states)
+            actions = actions.detach().numpy()
+            actions_perturbed = actions_perturbed.detach().numpy()
+            if (actions_perturbed.shape[0] != 1):
+                actions_perturbed = actions_perturbed.tolist()
+            score += np.mean(rewards)  # get the reward
+            if (np.any(dones) == True) or (t == max_t):
                 break
         Agent.update_eps()
         scores.append(score)
         scores_window.append(score)
+
+
         print('\rEpisode {}\tAverage Score: {:.2f}\tCurrent Score : {}'.format(e + 1, np.mean(scores_window), score), end="")
         if (e + 1) % 100 == 0:
             print('\rEpisode {}\tAverage Score: {:.2f}'.format(e + 1, np.mean(scores_window)))
-        if (np.mean(scores_window) >= 200 and (np.mean(scores_window) > best_score) ):
+        if (np.mean(scores_window) >= 30 and (np.mean(scores_window) > best_score) ):
             best_score = np.mean(scores_window)
             print('\nEnvironment achieved average score {:.2f} in {:d} episodes!'.format(np.mean(scores_window),(e + 1)))
-            file_name_q = str(save_to)  +'_' + str(np.round(np.mean(scores_window), 0)) + str('.qnt')
-            file_name_p = str(save_to)  +'_' + str(np.round(np.mean(scores_window), 0)) + str('.plc')
-            Agent.critic_local.save(file_name_q)
-            Agent.actor_local.save(file_name_p)
-            print("environment saved to ", save_to)
-    plt.plot(Agent.actor_local.rand_process.log)
-    plt.show()
+            file_name = str(save_to)  +'_' + str(np.round(np.mean(scores_window), 0)) + str('.prms')
+            Agent.save_weights(str(file_name))
+            print("environment saved to ", file_name)
     return scores
 
-
-params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux/Reacher.x86_64',
+#20 agents
+env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux_20/Reacher.x86_64',
           'worker_id' : 0,
           'seed' : 1234,
           'visual_mode' : False,
-          'multiagent_mode' : False}
+          'multiagent_mode' : True}
 
-env_name = 'Pendulum-v0'
-env = gym.make(env_name) #Pendulum-v0 #MountainCarContinuous-v0 #LunarLanderContinuous-v2
+#1 agent
+# params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux/Reacher.x86_64',
+#           'worker_id' : 0,
+#           'seed' : 1234,
+#           'visual_mode' : False,
+#           'multiagent_mode' : False}
 
-# env_name = 'Reacher'
-# env = UnityEnv(params)
+#openai gym env
+# env_name = 'Pendulum-v0'
+# env = gym.make(env_name) #Pendulum-v0 #MountainCarContinuous-v0 #LunarLanderContinuous-v2
+
+env_name = 'Reacher'
+env = UnityEnv(env_params)
 
 observation = env.reset()
 action_space = env.action_space
 observation_space = env.observation_space
 
-# examine the state space
-action_dim = len(env.action_space.low)
-state_dim =len(observation_space.low)
-num_episodes = 1000
-buffer_size = int(2**17)  # replay buffer size
-batch_size = 100          # minibatch size
-gamma = 0.99              # discount factor
-tau = 1e-2                # for soft update of target parameters
-lr = 1e-3                 # learning rate
-update_every = 4          # how often to update the network
-seed = random.randint(0,1000)
-max_t = 200
+params = dict()
+params['action_dim'] = len(env.action_space.low)
+params['state_dim'] = len(observation_space.low)
+params['num_episodes'] = 200
+params['buffer_size'] = int(1e6)    # replay buffer size
+params['batch_size'] = 128          # minibatch size
+params['gamma'] = 0.99              # discount factor
+params['tau'] = 1e-2                # for soft update of target parameters
+params['eps'] = 0.5                 # exploration factor (modifies noise)
+params['min_eps'] = 0.05            # min level of noise
+params['eps_decay'] = np.exp(np.log(params['min_eps']/params['eps'])/(0.8*params['num_episodes']))
+params['lr'] = 1e-3                 # learning rate
+params['update_every'] = 1          # how often to update the network
+params['seed'] = random.randint(0,1000)
+params['max_t'] = 10000
+params['save_to'] = ('./' + env_name)
 
-RL_Agent = Agent(state_dim, action_dim, buffer_size, batch_size, gamma, tau, lr, update_every, seed)
-scores = interact_and_train(RL_Agent, env, num_episodes, max_t, save_to = ('./' + env_name))
-plt.plot(savgol_filter(scores,51,3))
-plt.show()
+params['arch_params_actor'] = OrderedDict(
+        {'state_and_action_dims': (params['state_dim'], params['action_dim']),
+         'layers': {
+             # 'Linear_1': 128, 'ReLU_1': None,
+             'Linear_2': 128,  'ReLU_2': None,
+             'Linear_3': 64,  'ReLU_3': None,
+             # 'Linear_4': 32, 'LayerNorm_4': None, 'ReLU_4': None,
+             'Linear_5': params['action_dim'],
+             'Tanh_1': None
+         }
+         })
+
+params['arch_params_critic'] = OrderedDict(
+    {'state_and_action_dims': (params['state_dim'], params['action_dim']),
+     'layers': {
+         # 'Linear_1': 128, 'ReLU_1': None,
+         'Linear_2': 128,  'ReLU_2': None,
+         'Linear_3': 64,  'ReLU_3': None,
+         # 'Linear_4': 32,'LayerNorm_4': None, 'ReLU_4': None,
+         'Linear_5': params['action_dim']
+     }
+     })
+
+RL_Agent = Agent(params)
+scores = interact_and_train(RL_Agent, env, params)
+pickle.dump(scores, open('scores' + env_name, 'wb+'))
+plotter(scores)

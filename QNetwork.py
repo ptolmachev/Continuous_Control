@@ -5,19 +5,20 @@ import torch.nn.functional as F
 
 class QNetwork(nn.Module):
     """Actor (Policy) Model."""
-    def __init__(self, seed, arch_params):
+    def __init__(self, qnet_params):
         """ arch_parameters is a dictionary like:
         {'state_and_action_dims' : (num1, num2), layers : {'Linear_1' : layer_size_1,..,'Linear_n' : layer_size_n} }
         """
         super(QNetwork, self).__init__()
-        self.seed_as_int = seed
-        torch.manual_seed(seed)
-        self.arch_params = arch_params
-        self.state_dim = arch_params['state_and_action_dims'][0]
-        self.action_dim = arch_params['state_and_action_dims'][1]
+        self.qnet_params = qnet_params
+        self.arch_params = qnet_params['arch_params']
+        self.seed_as_int = qnet_params['seed']
+        torch.manual_seed(self.seed_as_int)
+        self.__state_dim = self.arch_params['state_and_action_dims'][0]
+        self.__action_dim = self.arch_params['state_and_action_dims'][1]
         keys = list(self.arch_params['layers'].keys())
         list_of_layers = []
-        prev_layer_size = self.state_dim+self.action_dim
+        prev_layer_size = self.__state_dim+self.__action_dim
         for i in range(len(self.arch_params['layers'])):
             key = keys[i]
             layer_type = key.split('_')[0]
@@ -33,28 +34,29 @@ class QNetwork(nn.Module):
             else:
                 print("Error: got unspecified layer type: '{}'. Check your layers!".format(layer_type))
                 break
-        self.layers = nn.ModuleList(list_of_layers)
+        self.__layers = nn.ModuleList(list_of_layers)
 
     def forward(self, state, action):  # get action values
         """Build a network that maps state -> action values."""
         x = torch.cat((state.float(),action.float()), dim = 1) # check here if concat is correct!!!
-        for i in range(len(self.layers)):
-            x = self.layers[i](x)
+        for i in range(len(self.__layers)):
+            x = self.__layers[i](x)
         return x
 
-    def save(self, save_to):
-        file = {'arch_params': self.arch_params,
-                'state_dict': self.state_dict(),
-               'seed' : self.seed_as_int}
-        torch.save(file, save_to)
-
-
-    def load(self, load_from):
-        checkpoint = torch.load(load_from)
-
-        self.__init__(checkpoint['seed'], checkpoint['arch_params'])
-        self.load_state_dict(checkpoint['state_dict'])
-        return self
+    # def save(self, save_to):
+    #     file = {'arch_params': self.arch_params,
+    #             'state_dict': self.state_dict(),
+    #             'seed' : self.seed_as_int}
+    #     torch.save(file, save_to)
+    #
+    #
+    # def load(self, load_from):
+    #     checkpoint = torch.load(load_from)
+    #     self.__qnet_params['seed'] = checkpoint['seed']
+    #     self.__qnet_params['arch_params'] = checkpoint['arch_params']
+    #     self.__init__(self.__qnet_params)
+    #     self.load_state_dict(checkpoint['state_dict'])
+    #     return self
 
 
 

@@ -7,18 +7,7 @@ import numpy as np
 
 
 class OUNoise:
-    """Ornstein-Uhlenbeck process
-    Attributes:
-        action_dimension (int): Dimension of `action`
-        mu (float): 0.0
-        sigma (float): > 0
-        state (np.ndarray): Noise
-        theta (float): > 0
-    Notes:
-        https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process
-    """
-
-    def __init__(self, dimension: int, mu=0.0, theta=0.5, sigma=0.3, seed=123) -> None:
+    def __init__(self, dimension, mu=0.0, theta=0.15, sigma=0.2, seed=123):
         """Initializes the noise """
         self.dimension = dimension
         self.mu = mu
@@ -26,97 +15,89 @@ class OUNoise:
         self.sigma = sigma
         self.state = np.ones(self.dimension) * self.mu
         self.reset()
-        self.log = []
         np.random.seed(seed)
 
-    def reset(self) -> None:
-        """Resets the states(= noise) to mu
-        """
+    def reset(self):
         self.state = np.ones(self.dimension) * self.mu
 
     def noise(self) -> np.ndarray:
-        """Returns a noise(= states)
-        Returns:
-            np.ndarray: noise, shape (n, action_dim)
-        """
         x = self.state
-        dx = self.theta * (self.mu - x) + self.sigma * np.random.randn(len(x))
+        if type(self.dimension) == tuple:
+            dx = self.theta * (self.mu - x) + self.sigma * np.random.randn(*self.dimension)
+        elif type(self.dimension) == int:
+            dx = self.theta * (self.mu - x) + self.sigma * np.random.randn(self.dimension)
         self.state = x + dx
         return self.state
 
 class Policy(nn.Module):
     """Actor (Policy) Model."""
-    def __init__(self, seed, arch_params):
+    def __init__(self, policy_params):
         """ arch_parameters is a dictionary like:
         {'state_and_action_dims' : (num1, num2), layers : {'Linear_1' : layer_size_1,..,'Linear_n' : layer_size_n} }
         """
         super(Policy, self).__init__()
-        self.seed_as_int = seed
-        torch.manual_seed(seed)
-        self.arch_params = arch_params
-        self.state_dim = arch_params['state_and_action_dims'][0]
-        self.action_dim = arch_params['state_and_action_dims'][1]
-        self.eps = 1.0
-        self.eps_decay = 0.993
-        keys = list(self.arch_params['layers'].keys())
-        # self.rand_process = OUNoise(self.action_dim) #, mu = 0, theta = 0.5, sigma = 0.05
-        list_of_layers = []
-        list_of_processes = []
+        self.policy_params = policy_params
+        self.seed_as_int = policy_params['seed']
+        torch.manual_seed(self.seed_as_int)
+        self.arch_params = policy_params['arch_params']
+        self.__state_dim = self.arch_params['state_and_action_dims'][0]
+        self.__action_dim = self.arch_params['state_and_action_dims'][1]
+        self.eps = policy_params['eps']
+        self.min_eps = policy_params['min_eps']
+        self.eps_decay = policy_params['eps_decay']
+        self.__noise_type = policy_params['noise_type']
 
-        prev_layer_size = self.state_dim
+        keys = list(self.arch_params['layers'].keys())
+        if self.__noise_type == 'action':
+            self.__rand_process = OUNoise((self.__action_dim,)) #, mu = 0, theta = 0.5, sigma = 0.05
+        elif self.__noise_type == 'parameter':
+            pass
+        else:
+            assert ValueError('Got an unspecified type of noise. The only available options are \'parameter\' and \'action\'')
+        list_of_layers = []
+
+        prev_layer_size = self.__state_dim
         for i in range(len(self.arch_params['layers'])):
             key = keys[i]
             layer_type = key.split('_')[0]
-            # add layer consistency check here
             if layer_type == 'Linear':
                 layer_size = self.arch_params['layers'][key]
                 list_of_layers.append(nn.Linear(prev_layer_size, layer_size))
-                # list_of_processes.append(OUNoise(layer_size,mu = 0, theta = 0.1, sigma = 0.05))
-                list_of_processes.append(None)
                 prev_layer_size = layer_size
             elif layer_type == 'LayerNorm':
                 list_of_layers.append(nn.LayerNorm(prev_layer_size))
-                list_of_processes.append(None)
             elif layer_type == 'ReLU':
                 list_of_layers.append(nn.ReLU())
-                list_of_processes.append(None)
             elif layer_type == 'Tanh':
                 list_of_layers.append(nn.Tanh())
-                list_of_processes.append(OUNoise(layer_size)) #,mu = 0, theta = 0.1, sigma = 0.05
             else:
                 print("Error: got unspecified layer type: '{}'. Check your layers!".format(layer_type))
                 break
-            self.layers = nn.ModuleList(list_of_layers)
-            self.layer_noises = list_of_processes
+        self.__layers = nn.ModuleList(list_of_layers)
+
 
     def forward(self, state):  # get action values
         """Build a network that maps state -> action values."""
-        x = state
-        y = state
+        y = state.float()
+        for i in range(len(self.__layers)):
+            y = self.__layers[i](y).float()
+        y_perturbed = y + self.eps*torch.from_numpy(self.__rand_process.noise()).float()
+        return y, torch.clamp(y_perturbed, min = -1.0, max = 1.0)
 
-        for i in range(len(self.layers)):
-            if self.layer_noises[i] is not None:
-                n = self.eps * torch.from_numpy(self.layer_noises[i].noise()).float()
-            else:
-                n = 0
-
-            x = self.layers[i](x).float() + n
-            y = self.layers[i](y).float()
-
-        return torch.clamp(y,-1.0,1.0), torch.clamp(x,-1.0,1.0)
-
-    def save(self, save_to):
-        file = {'arch_params': self.arch_params,
-                'state_dict': self.state_dict(),
-                'seed' : self.seed_as_int}
-        torch.save(file, save_to)
-
-
-    def load(self, load_from):
-        checkpoint = torch.load(load_from)
-        self.__init__(checkpoint['seed'], checkpoint['arch_params'])
-        self.load_state_dict(checkpoint['state_dict'])
-        return self
+    # def save(self, save_to):
+    #     file = {'arch_params': self.arch_params,
+    #             'state_dict': self.state_dict(),
+    #             'seed' : self.seed_as_int}
+    #     torch.save(file, save_to)
+    #
+    #
+    # def load(self, load_from):
+    #     checkpoint = torch.load(load_from)
+    #     self.__policy_params['seed'] = checkpoint['seed']
+    #     self.__policy_params['arch_params'] = checkpoint['arch_params']
+    #     self.__init__(self.__policy_params)
+    #     self.load_state_dict(checkpoint['state_dict'])
+    #     return self
 
 
 # #quick test:
