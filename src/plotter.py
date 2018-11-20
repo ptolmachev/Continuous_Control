@@ -2,11 +2,11 @@ import pickle
 from scipy.signal import savgol_filter
 import numpy as np
 from matplotlib import pyplot as plt
-def plotter(scores):
+def plotter(scores, threshold):
 
     #PLOT SCORES
     x = np.arange(len(scores))
-    xs = 30.0*np.ones(len(scores))
+    xs = threshold*np.ones(len(scores))
     plt.xkcd()
     plt.plot(xs,'k--', linewidth = 2)
     plt.plot(savgol_filter(scores,51,3), linewidth = 3, color = 'Red')
@@ -16,7 +16,6 @@ def plotter(scores):
     plt.ylabel("Score")
     plt.grid(True)
     plt.show()
-
 
 # scores = pickle.load(open('scores_Reacher', 'rb+'))
 # plotter(scores)

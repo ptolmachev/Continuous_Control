@@ -1,31 +1,6 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-import numpy as np
-
-
-class OUNoise:
-    def __init__(self, dimension, mu=0.0, theta=0.15, sigma=0.2, seed=123):
-        """Initializes the noise """
-        self.dimension = dimension
-        self.mu = mu
-        self.theta = theta
-        self.sigma = sigma
-        self.state = np.ones(self.dimension) * self.mu
-        self.reset()
-        np.random.seed(seed)
-
-    def reset(self):
-        self.state = np.ones(self.dimension) * self.mu
-
-    def noise(self) -> np.ndarray:
-        y_perturbed = self.state
-        if type(self.dimension) == tuple:
-            dy_perturbed = self.theta * (self.mu - y_perturbed) + self.sigma * np.random.randn(*self.dimension)
-        elif type(self.dimension) == int:
-            dy_perturbed = self.theta * (self.mu - y_perturbed) + self.sigma * np.random.randn(self.dimension)
-        self.state = y_perturbed + dy_perturbed
-        return self.state
+from Noise import OUNoise
 
 class Policy(nn.Module):
     """Actor (Policy) Model."""
@@ -127,27 +102,3 @@ class Policy(nn.Module):
                 y = self.layers[i](y).float()
                 y_perturbed = self.layers[i](y_perturbed).float()
             return y, torch.clamp(y_perturbed, min = -1.0, max = 1.0)
-
-
-# #quick test:
-# import numpy as np
-# import torch
-# arch_params = {'state_and_action_dims': (10, 10),
-#                'layers': {'Linear_1': 32, 'ReLU_1': None,
-#                           'Linear_2': 32, 'ReLU_2': None,
-#                           'Linear_4': 10}}
-#
-# P = Policy(3, arch_params)
-# rand_vec = 1000*np.random.rand(10)-500
-# state = torch.tensor(rand_vec).float()
-# print(P(state))
-#
-# P.save('test.plc')
-# arch_params = {'state_and_action_dims': (10, 6),
-#                'layers': {'Linear_1': 32, 'ReLU_1': None,
-#                           'Linear_2': 32, 'ReLU_2': None,
-#                           'Linear_4': 6}}
-# P = Policy(90,arch_params) #no matter what you put there
-# P.load('test.plc')
-# state = torch.tensor(rand_vec).float()
-# print(P(state))

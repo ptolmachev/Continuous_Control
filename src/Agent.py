@@ -1,7 +1,4 @@
 import numpy as np
-import random
-
-
 from QNetwork import QNetwork
 from Policy import Policy
 from ReplayBuffer import ReplayBuffer
@@ -107,7 +104,7 @@ class Agent():
         file = dict()
         file['critic_params'] = critic_params
         file['actor_params'] = actor_params
-        torch.save(file, save_to)
+        torch.save(file, open(save_to, 'wb'))
 
 
     def load_weights(self, load_from):

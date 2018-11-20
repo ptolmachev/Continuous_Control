@@ -1,31 +1,9 @@
-##Quick hand-made solution of environment
-# import gym
-# env = gym.make('MountainCarContinuous-v0')
-# observation = env.reset()
-# action_space = env.action_space
-# observation_space = env.observation_space
-# # print(action_space.low, action_space.high)# [-1,1]
-# # print(action_space.sample())
-# velocity_sign = 1
-# score = 0
-# done = False
-# while not done:
-#     env.render()
-#     info = env.step([velocity_sign]) #take a random action
-#     velocity_sign = 1 if info[0][1]>=0 else -1
-#     velocity_sign = 1 if info[0][0] <= -0.7 else velocity_sign
-#     score += info[1]
-#     done = info[2]
-# print("achieved_score = {}".format(score))
-
 from unity_env import UnityEnv
 import gym
 import random
 import numpy as np
 from collections import deque
-import matplotlib.pyplot as plt
 from Agent import Agent
-from scipy.signal import savgol_filter
 from collections import OrderedDict
 import pickle
 from plotter import plotter
@@ -102,7 +80,9 @@ def interact_and_train(Agent, Env, params):
             print("environment saved to ", file_name)
     return scores
 
-#20 agents
+# ENVIRONMENT
+
+# 20 agents# Uncomment the lines below to run training in environment with 20 agent
 env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux_20/Reacher.x86_64',
           'worker_id' : 0,
           'seed' : 1234,
@@ -111,7 +91,7 @@ env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_L
 env_name = 'Reacher'
 env = UnityEnv(env_params)
 
-#1 agent
+# One agent# Uncomment the lines below to run training in environment with 1 agent
 # env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux/Reacher.x86_64',
 #           'worker_id' : 0,
 #           'seed' : 1234,
@@ -120,44 +100,43 @@ env = UnityEnv(env_params)
 # env_name = 'Reacher'
 # env = UnityEnv(env_params)
 
-#openai gym env
+# OpenAI gym env# uncomment these lines to use gym environment
 # env_name = 'Pendulum-v0'
 # env = gym.make(env_name) #Pendulum-v0 #MountainCarContinuous-v0 #LunarLanderContinuous-v2
-
-# env_name = 'Reacher'
-# env = UnityEnv(env_params)
 
 observation = env.reset()
 action_space = env.action_space
 observation_space = env.observation_space
 
+# PARAMETERS
 params = dict()
 params['action_dim'] = len(env.action_space.low)
 params['state_dim'] = len(observation_space.low)
-params['num_episodes'] = 200
+params['num_episodes'] = 200        #number of episodes for agent to interact with the environment
 params['buffer_size'] = int(1e6)    # replay buffer size
-params['batch_size'] = 128         # minibatch size
+params['batch_size'] = 128          # minibatch size
 params['gamma'] = 0.99              # discount factor
 params['tau'] = 1e-2                # for soft update of target parameters
-params['eps'] = 0.8                  # exploration factor (modifies noise)
-params['min_eps'] = 0.001            # min level of noise
-params['eps_decay'] = np.exp(np.log(params['min_eps']/params['eps'])/(0.8*params['num_episodes']))
+params['eps'] = 0.8                 # exploration factor (modifies noise)
+params['min_eps'] = 0.001           # min level of noise
+min_e = params['min_eps']
+e = params['eps']
+N = params['num_episodes']
+params['eps_decay'] = np.exp(np.log(min_e/e)/(0.8*N)) #decay of the level of the noise after each episode
 params['lr'] = 1e-3                 # learning rate
-params['update_every'] = 2          # how often to update the network
+params['update_every'] = 2          # how often to update the network (every update_every timestep)
 params['seed'] = random.randint(0,1000)
-params['max_t'] = 1000
-params['noise_type'] = 'action'
-params['save_to'] = ('results/' + env_name)
-params['threshold'] = 35
+params['max_t'] = 1000              # restriction on max number of timesteps per each episodes
+params['noise_type'] = 'action'     # noise type; can be 'action' or 'parameter'
+params['save_to'] = ('../results/' + env_name) # where to save the results to
+params['threshold'] = 38            # the score above which the network parameters are saved
 
 params['arch_params_actor'] = OrderedDict(
         {'state_and_action_dims': (params['state_dim'], params['action_dim']),
          'layers': {
-             # 'Linear_1': 128, 'ReLU_1': None,
-             'Linear_2': 128,   'ReLU_2': None, #
-             'Linear_3': 64,  'ReLU_3': None,  #
-             # 'Linear_4': 32, 'LayerNorm_4': None, 'ReLU_4': None,
-             'Linear_5': params['action_dim'],
+             'Linear_1': 128,   'ReLU_1': None,
+             'Linear_2': 64,  'ReLU_2': None,
+             'Linear_3': params['action_dim'],
              'Tanh_1': None
          }
          })
@@ -165,15 +144,21 @@ params['arch_params_actor'] = OrderedDict(
 params['arch_params_critic'] = OrderedDict(
     {'state_and_action_dims': (params['state_dim'], params['action_dim']),
      'layers': {
-         # 'Linear_1': 128, 'ReLU_1': None,
-         'Linear_2': 128, 'ReLU_2': None,
-         'Linear_3': 64, 'ReLU_3': None,
-         # 'Linear_4': 32,'LayerNorm_4': None, 'ReLU_4': None,
-         'Linear_5': params['action_dim']
+         'Linear_1': 128, 'ReLU_1': None,
+         'Linear_2': 64, 'ReLU_2': None,
+         'Linear_3': params['action_dim']
      }
      })
 
+# AGENT
+
 RL_Agent = Agent(params)
+
+#TRAINING OF AN AGENT
 scores = interact_and_train(RL_Agent, env, params)
-pickle.dump(scores, open('results/scores' + env_name + 'pkl', 'wb+'))
-plotter(scores)
+
+#SAVING THE RESULTS
+pickle.dump(scores, open(params['save_to'] + '.pkl', 'wb+'))
+
+#PLOT THE RESULTS
+plotter(scores, threshold = 30)
