@@ -19,12 +19,12 @@ class OUNoise:
         self.state = np.ones(self.dimension) * self.mu
 
     def noise(self) -> np.ndarray:
-        x = self.state
+        y_perturbed = self.state
         if type(self.dimension) == tuple:
-            dx = self.theta * (self.mu - x) + self.sigma * np.random.randn(*self.dimension)
+            dy_perturbed = self.theta * (self.mu - y_perturbed) + self.sigma * np.random.randn(*self.dimension)
         elif type(self.dimension) == int:
-            dx = self.theta * (self.mu - x) + self.sigma * np.random.randn(self.dimension)
-        self.state = x + dx
+            dy_perturbed = self.theta * (self.mu - y_perturbed) + self.sigma * np.random.randn(self.dimension)
+        self.state = y_perturbed + dy_perturbed
         return self.state
 
 class Policy(nn.Module):
@@ -66,12 +66,11 @@ class Policy(nn.Module):
                 print("Error: got unspecified layer type: '{}'. Check your layers!".format(layer_type))
                 break
 
-        self.__layers = nn.ModuleList(list_of_layers)
+        self.layers = nn.ModuleList(list_of_layers)
 
         #noise
-
         if self.__noise_type == 'action':
-            self.__rand_process = OUNoise((self.__action_dim,)) #, mu = 0, theta = 0.5, sigma = 0.05
+            self.__rand_process = OUNoise((self.__action_dim,))
 
         elif self.__noise_type == 'parameter':
             self.network_params_perturbations = dict()
@@ -82,57 +81,52 @@ class Policy(nn.Module):
             assert ValueError('Got an unspecified type of noise. The only available options are \'parameter\' and \'action\'')
 
     def forward(self, state):  # get action values
-        """Build a network that maps state -> action values."""
+        """Build a network that maps state -> action."""
+
 
         if self.__noise_type == 'action':
             y = state.float()
-            for i in range(len(self.__layers)):
-                y = self.__layers[i](y).float()
+            for i in range(len(self.layers)):
+                y = self.layers[i](y).float()
+
+            # #explicit forward pass using parameters of the network
+            # i = -1
+            # for name, parameter in self.named_parameters():
+            #     if 'weight' in name:
+            #         if parameter.shape[1] == y.shape[0]: #if there is a single state
+            #             y = parameter.matmul(y)
+            #         else:                                #if there is a batch of states
+            #             y = y.matmul(parameter.t())
+            #     if 'bias' in name:
+            #         y = y + parameter
+            #         i += 2
+            #     y = self.layers[i](y).float() #assuming that every secound layer is parameterless (like Relu or Tanh)
+
             y_perturbed = y + self.eps*torch.from_numpy(self.__rand_process.noise()).float()
             return y, torch.clamp(y_perturbed, min = -1.0, max = 1.0)
 
 
         elif self.__noise_type == 'parameter':
-
-            #calculate_unperturbed action
             y = state.float()
-            for i in range(len(self.__layers)):
-                y = self.__layers[i](y).float()
-
-            #add noise to parameters:
-            network_params = dict()
-            for name, parameter in self.named_parameters():
-                if 'weight' in name:
-                    network_params[name] = parameter.clone()
-                    # modify weights
-                    self.state_dict()[name].copy_(parameter + self.eps*torch.from_numpy(self.network_params_perturbations[name].noise()).float())
-            #calculate perturbed_action
             y_perturbed = state.float()
-            for i in range(len(self.__layers)):
-                y_perturbed = self.__layers[i](y_perturbed).float()
-            #discard the noise
+            i = -1
             for name, parameter in self.named_parameters():
                 if 'weight' in name:
-                    self.state_dict()[name].copy_(network_params[name])
-
-
-
+                    if parameter.shape[1] == y.shape[0]: #if there is a single state
+                        y = parameter.matmul(y)
+                        n = torch.from_numpy(self.network_params_perturbations[name].noise()).float()
+                        y_perturbed = (parameter + self.eps*n).matmul(y_perturbed)
+                    else:                                #if there is a batch of states
+                        y = y.matmul(parameter.t())
+                        n = torch.from_numpy(self.network_params_perturbations[name].noise()).float()
+                        y_perturbed = y_perturbed.matmul((parameter + self.eps*n).t())
+                if 'bias' in name:
+                    y = y + parameter
+                    y_perturbed = y_perturbed + (parameter)
+                    i += 2
+                y = self.layers[i](y).float()
+                y_perturbed = self.layers[i](y_perturbed).float()
             return y, torch.clamp(y_perturbed, min = -1.0, max = 1.0)
-
-    # def save(self, save_to):
-    #     file = {'arch_params': self.arch_params,
-    #             'state_dict': self.state_dict(),
-    #             'seed' : self.seed_as_int}
-    #     torch.save(file, save_to)
-    #
-    #
-    # def load(self, load_from):
-    #     checkpoint = torch.load(load_from)
-    #     self.__policy_params['seed'] = checkpoint['seed']
-    #     self.__policy_params['arch_params'] = checkpoint['arch_params']
-    #     self.__init__(self.__policy_params)
-    #     self.load_state_dict(checkpoint['state_dict'])
-    #     return self
 
 
 # #quick test:

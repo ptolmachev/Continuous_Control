@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="acb55920-5932-42bc-838a-9e1ba3df7602" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MountainCarContinuous-v0_90.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MountainCarContinuous-v0_91.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MountainCarContinuous-v0_92.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MountainCarContinuous-v0_93.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MountainCarContinuous-v0_94.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MountainCarContinuous-v0_95.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pendulum-v0_-136.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pendulum-v0_-137.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_34.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_35.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_36.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_37.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_38.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_39.0.prms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux (1).zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/Google.Protobuf.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/Grpc.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/Mono.Posix.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/Mono.Security.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/System.Configuration.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/System.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/System.Interactive.Async.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/System.Security.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/System.Xml.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/System.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.AIModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.AIModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ARModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ARModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.AccessibilityModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.AccessibilityModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.AnimationModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.AnimationModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.AssetBundleModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.AssetBundleModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.AudioModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.AudioModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ClothModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ClothModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ClusterInputModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ClusterInputModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ClusterRendererModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ClusterRendererModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.CoreModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.CoreModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.CrashReportingModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.CrashReportingModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.DirectorModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.DirectorModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.GameCenterModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.GameCenterModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.GridModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.GridModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.IMGUIModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.IMGUIModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ImageConversionModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ImageConversionModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.InputModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.InputModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.JSONSerializeModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.JSONSerializeModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.Networking.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ParticleSystemModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ParticleSystemModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ParticlesLegacyModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ParticlesLegacyModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.PerformanceReportingModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.PerformanceReportingModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.Physics2DModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.Physics2DModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.PhysicsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.PhysicsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ScreenCaptureModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.ScreenCaptureModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.SharedInternalsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.SharedInternalsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.SpatialTracking.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.SpriteMaskModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.SpriteMaskModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.SpriteShapeModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.SpriteShapeModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.StandardEvents.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.StyleSheetsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.StyleSheetsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.TerrainModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.TerrainModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.TerrainPhysicsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.TextRenderingModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.TextRenderingModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.TilemapModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.TilemapModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.Timeline.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UI.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UIElementsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UIElementsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UIModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UIModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UNETModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UNETModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityAnalyticsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityConnectModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityConnectModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityWebRequestModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityWebRequestModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.VRModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.VRModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.VehiclesModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.VehiclesModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.VideoModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.VideoModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.WebModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.WebModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.WindModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.WindModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/UnityEngine.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Managed/mscorlib.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/2.0/machine.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/2.0/settings.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/2.0/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/4.0/machine.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/4.0/settings.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/4.0/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/4.5/machine.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/4.5/settings.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/4.5/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/browscap.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/etc/mono/mconfig/config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/x86/libMonoPosixHelper.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/x86/libmonobdwgc-2.0.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/x86_64/libMonoPosixHelper.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/MonoBleedingEdge/x86_64/libmonobdwgc-2.0.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Plugins/x86/ScreenSelector.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Plugins/x86/libgrpc_csharp_ext.x86.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Plugins/x86_64/ScreenSelector.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Plugins/x86_64/libgrpc_csharp_ext.x64.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Resources/UnityPlayer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Resources/unity default resources" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/Resources/unity_builtin_extra" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/boot.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/globalgamemanagers" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/globalgamemanagers.assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/level0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/level0.resS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/resources.assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux/Reacher_Data/sharedassets0.assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher.x86" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher.x86_64" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/Google.Protobuf.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/Grpc.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/Mono.Posix.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/Mono.Security.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/System.Configuration.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/System.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/System.Interactive.Async.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/System.Security.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/System.Xml.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/System.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.AIModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.AIModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ARModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ARModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.AccessibilityModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.AccessibilityModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.AnimationModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.AnimationModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.AssetBundleModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.AssetBundleModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.AudioModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.AudioModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ClothModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ClothModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ClusterInputModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ClusterInputModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ClusterRendererModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ClusterRendererModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.CoreModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.CoreModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.CrashReportingModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.CrashReportingModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.DirectorModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.DirectorModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.GameCenterModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.GameCenterModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.GridModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.GridModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.IMGUIModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.IMGUIModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ImageConversionModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ImageConversionModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.InputModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.InputModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.JSONSerializeModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.JSONSerializeModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.Networking.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ParticleSystemModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ParticleSystemModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ParticlesLegacyModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ParticlesLegacyModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.PerformanceReportingModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.PerformanceReportingModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.Physics2DModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.Physics2DModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.PhysicsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.PhysicsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ScreenCaptureModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.ScreenCaptureModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.SharedInternalsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.SharedInternalsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.SpatialTracking.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.SpriteMaskModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.SpriteMaskModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.SpriteShapeModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.SpriteShapeModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.StandardEvents.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.StyleSheetsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.StyleSheetsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.TerrainModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.TerrainModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.TerrainPhysicsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.TextRenderingModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.TextRenderingModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.TilemapModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.TilemapModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.Timeline.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UI.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UIElementsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UIElementsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UIModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UIModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UNETModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UNETModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityAnalyticsModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityConnectModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityConnectModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityWebRequestModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityWebRequestModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.VRModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.VRModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.VehiclesModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.VehiclesModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.VideoModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.VideoModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.WebModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.WebModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.WindModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.WindModule.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/UnityEngine.dll.mdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Managed/mscorlib.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/2.0/machine.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/2.0/settings.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/2.0/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/4.0/machine.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/4.0/settings.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/4.0/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/4.5/machine.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/4.5/settings.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/4.5/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/browscap.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/etc/mono/mconfig/config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/x86/libMonoPosixHelper.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/x86/libmonobdwgc-2.0.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/x86_64/libMonoPosixHelper.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/MonoBleedingEdge/x86_64/libmonobdwgc-2.0.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Plugins/x86/ScreenSelector.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Plugins/x86/libgrpc_csharp_ext.x86.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Plugins/x86_64/ScreenSelector.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Plugins/x86_64/libgrpc_csharp_ext.x64.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Resources/UnityPlayer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Resources/unity default resources" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/Resources/unity_builtin_extra" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/boot.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/globalgamemanagers" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/globalgamemanagers.assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/level0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/level0.resS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/resources.assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reacher_Linux_20/Reacher_Data/sharedassets0.assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReplayBuffer_PER.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SumTree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plotter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scoresLunarLanderContinuous-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scoresMountainCarContinuous-v0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scoresPendulum-v0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scoresReacher" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scoresReacher2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scores_pendulum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scores_reacher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Policy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Policy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReplayBuffer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReplayBuffer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interact_and_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/interact_and_train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unity-environment.log" beforeDir="false" afterPath="$PROJECT_DIR$/unity-environment.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unity_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/unity_env.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1184036368">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="8" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="12" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="46" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="46" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="12697" />
+          <entry key="txt" value="74" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="74" />
+          <entry key="Python" value="12697" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/unity_env.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="106" selection-start-line="106" selection-end-line="106" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run_one_time.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="116" column="37" lean-forward="true" selection-start-line="116" selection-start-column="37" selection-end-line="116" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/interact_and_train.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="124" column="15" lean-forward="true" selection-start-line="124" selection-start-column="15" selection-end-line="124" selection-end-column="15" />
+              <folding>
+                <element signature="e#33#74#0" />
+                <element signature="e#643#673#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plotter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Agent.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/QNetwork.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="41" column="43" lean-forward="true" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Policy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1470">
+              <caret line="98" column="48" lean-forward="true" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/torch/nn/modules/module.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="477" selection-start-line="477" selection-end-line="477" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Policy</find>
+      <find>lr</find>
+      <find>soft_</find>
+      <find>memorize_experience</find>
+      <find>action</find>
+      <find>save_to</find>
+      <find>dis</find>
+      <find>action_perturbed</find>
+      <find>proce</find>
+      <find>state</find>
+      <find>actor</find>
+      <find>actor_params</find>
+      <find>policy_params</find>
+      <find>state_dim</find>
+      <find>arch_</find>
+      <find>_Agent__arch_params</find>
+      <find>__arch_params</find>
+      <find>noise</find>
+      <find>list_of_random_processes</find>
+      <find>x</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="ptolmachev &lt;betadecay1993@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="AUTO_COMMIT_ON_CHERRY_PICK" value="true" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/../Continuous_Control-p2/main.py" />
+        <option value="$PROJECT_DIR$/ReplayBuffer.py" />
+        <option value="$PROJECT_DIR$/plotter.py" />
+        <option value="$PROJECT_DIR$/QNetwork.py" />
+        <option value="$PROJECT_DIR$/Agent.py" />
+        <option value="$PROJECT_DIR$/run_one_time.py" />
+        <option value="$PROJECT_DIR$/Policy.py" />
+        <option value="$PROJECT_DIR$/interact_and_train.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="69" />
+    <option name="y" value="25" />
+    <option name="width" value="926" />
+    <option name="height" value="1055" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Continuous_Control" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Continuous_Control" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="hotkeys&#9;null&#9;null" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/interact_and_train.py" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.interact_and_train">
+    <configuration name="Agent" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Continuous_Control" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Agent.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Policy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Continuous_Control" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Policy.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="interact_and_train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Continuous_Control" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/interact_and_train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Continuous_Control" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Continuous_Control-p2" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Continuous_Control-p2/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_one_time" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Continuous_Control" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_one_time.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.interact_and_train" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.Agent" />
+      <item itemvalue="Python.Policy" />
+      <item itemvalue="Python.run_one_time" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.interact_and_train" />
+        <item itemvalue="Python.run_one_time" />
+        <item itemvalue="Python.Agent" />
+        <item itemvalue="Python.Policy" />
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="acb55920-5932-42bc-838a-9e1ba3df7602" name="Default Changelist" comment="" />
+      <created>1541560603109</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541560603109</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <created>1542438148951</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1542438148951</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Initial Commit">
+      <created>1542438468874</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1542438468874</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Initial Commit">
+      <created>1542438854976</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1542438854976</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Initial Commit">
+      <created>1542439283629</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1542439283629</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Initial Commit">
+      <created>1542439365872</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1542439365872</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Initial Commit">
+      <created>1542439401092</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1542439401092</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Initial Commit">
+      <created>1542439533170</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1542439533170</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Initial Commit">
+      <created>1542449085222</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1542449085222</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Working version">
+      <created>1542602300490</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1542602300490</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Parameter noise working (but slow)">
+      <created>1542676180287</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1542676180287</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="69" y="25" width="1851" height="1055" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23905908" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49945295" visible="true" weight="0.24972972" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34486488" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50054705" side_tool="true" weight="0.45945945" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.07056893" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45846817" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.399137" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit" />
+    <MESSAGE value="Working version" />
+    <MESSAGE value="Parameter noise working (but slow)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Parameter noise working (but slow)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Agent.py</url>
+          <line>113</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/run_one_time.py</url>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="idxs" />
+        <watch expression="idxs" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>self.layers[5]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.layers[4]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.layers[3]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.layers[1]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.layers</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.layers.result</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.layers[2]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.layers[0]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.__layers[i]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../Continuous_Control-p2/main.py" />
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/scipy/signal/_arraytools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/torch/nn/modules/container.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/torch/nn/functional.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="1037" column="48" selection-start-line="1037" selection-start-column="48" selection-end-line="1037" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SumTree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/torch/cuda/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.6/_collections_abc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="395" selection-start-line="395" selection-end-line="395" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.6/abc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="226" selection-start-line="226" selection-end-line="226" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3/dist-packages/accerciser/hotkey_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReplayBuffer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.6/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="312" selection-start-line="312" selection-end-line="312" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/unityagents/curriculum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/unityagents/environment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="260" selection-start-line="260" selection-end-line="260" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/unityagents/rpc_communicator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.6/multiprocessing/reduction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.6/multiprocessing/connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="205" selection-start-line="205" selection-end-line="205" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="2012" selection-start-line="2012" selection-end-line="2012" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unity_env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plotter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/torch/nn/modules/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="477" selection-start-line="477" selection-end-line="477" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3/dist-packages/apport_python_hook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="151" selection-start-line="151" selection-end-line="151" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QNetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="41" column="43" lean-forward="true" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_one_time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="116" column="37" lean-forward="true" selection-start-line="116" selection-start-column="37" selection-end-line="116" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interact_and_train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="124" column="15" lean-forward="true" selection-start-line="124" selection-start-column="15" selection-end-line="124" selection-end-column="15" />
+          <folding>
+            <element signature="e#33#74#0" />
+            <element signature="e#643#673#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Policy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1470">
+          <caret line="98" column="48" lean-forward="true" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

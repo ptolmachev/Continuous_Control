@@ -58,6 +58,9 @@ def interact_and_train(Agent, Env, params):
         score = 0
         states = np.array(Env.reset())  # reset the environment SSS
         states = normalize(states, state_high, state_low)
+
+
+
         actions, actions_perturbed = Agent.choose_action(states)
         actions = denormalize(actions.detach().numpy(), action_high, action_low)
         actions_perturbed = denormalize(actions_perturbed.detach().numpy(), action_high, action_low)
@@ -133,19 +136,19 @@ observation_space = env.observation_space
 params = dict()
 params['action_dim'] = len(env.action_space.low)
 params['state_dim'] = len(observation_space.low)
-params['num_episodes'] = 500
+params['num_episodes'] = 200
 params['buffer_size'] = int(1e6)    # replay buffer size
-params['batch_size'] = 128          # minibatch size
+params['batch_size'] = 128         # minibatch size
 params['gamma'] = 0.99              # discount factor
 params['tau'] = 1e-2                # for soft update of target parameters
-params['eps'] = 0.2                   # exploration factor (modifies noise)
+params['eps'] = 0.8                  # exploration factor (modifies noise)
 params['min_eps'] = 0.001            # min level of noise
 params['eps_decay'] = np.exp(np.log(params['min_eps']/params['eps'])/(0.8*params['num_episodes']))
 params['lr'] = 1e-3                 # learning rate
-params['update_every'] = 1          # how often to update the network
+params['update_every'] = 2          # how often to update the network
 params['seed'] = random.randint(0,1000)
 params['max_t'] = 1000
-params['noise_type'] = 'parameter'
+params['noise_type'] = 'action'
 params['save_to'] = ('./' + env_name)
 params['threshold'] = 35
 
