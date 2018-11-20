@@ -4,8 +4,6 @@ import torch.nn.functional as F
 import numpy as np
 
 
-
-
 class OUNoise:
     def __init__(self, dimension, mu=0.0, theta=0.15, sigma=0.2, seed=123):
         """Initializes the noise """
@@ -48,12 +46,6 @@ class Policy(nn.Module):
         self.__noise_type = policy_params['noise_type']
 
         keys = list(self.arch_params['layers'].keys())
-        if self.__noise_type == 'action':
-            self.__rand_process = OUNoise((self.__action_dim,)) #, mu = 0, theta = 0.5, sigma = 0.05
-        elif self.__noise_type == 'parameter':
-            pass
-        else:
-            assert ValueError('Got an unspecified type of noise. The only available options are \'parameter\' and \'action\'')
         list_of_layers = []
 
         prev_layer_size = self.__state_dim
@@ -73,16 +65,59 @@ class Policy(nn.Module):
             else:
                 print("Error: got unspecified layer type: '{}'. Check your layers!".format(layer_type))
                 break
+
         self.__layers = nn.ModuleList(list_of_layers)
 
+        #noise
+
+        if self.__noise_type == 'action':
+            self.__rand_process = OUNoise((self.__action_dim,)) #, mu = 0, theta = 0.5, sigma = 0.05
+
+        elif self.__noise_type == 'parameter':
+            self.network_params_perturbations = dict()
+            for name, parameter in self.named_parameters():
+                if 'weight' in name:
+                    self.network_params_perturbations[name] = OUNoise(tuple(parameter.shape))
+        else:
+            assert ValueError('Got an unspecified type of noise. The only available options are \'parameter\' and \'action\'')
 
     def forward(self, state):  # get action values
         """Build a network that maps state -> action values."""
-        y = state.float()
-        for i in range(len(self.__layers)):
-            y = self.__layers[i](y).float()
-        y_perturbed = y + self.eps*torch.from_numpy(self.__rand_process.noise()).float()
-        return y, torch.clamp(y_perturbed, min = -1.0, max = 1.0)
+
+        if self.__noise_type == 'action':
+            y = state.float()
+            for i in range(len(self.__layers)):
+                y = self.__layers[i](y).float()
+            y_perturbed = y + self.eps*torch.from_numpy(self.__rand_process.noise()).float()
+            return y, torch.clamp(y_perturbed, min = -1.0, max = 1.0)
+
+
+        elif self.__noise_type == 'parameter':
+
+            #calculate_unperturbed action
+            y = state.float()
+            for i in range(len(self.__layers)):
+                y = self.__layers[i](y).float()
+
+            #add noise to parameters:
+            network_params = dict()
+            for name, parameter in self.named_parameters():
+                if 'weight' in name:
+                    network_params[name] = parameter.clone()
+                    # modify weights
+                    self.state_dict()[name].copy_(parameter + self.eps*torch.from_numpy(self.network_params_perturbations[name].noise()).float())
+            #calculate perturbed_action
+            y_perturbed = state.float()
+            for i in range(len(self.__layers)):
+                y_perturbed = self.__layers[i](y_perturbed).float()
+            #discard the noise
+            for name, parameter in self.named_parameters():
+                if 'weight' in name:
+                    self.state_dict()[name].copy_(network_params[name])
+
+
+
+            return y, torch.clamp(y_perturbed, min = -1.0, max = 1.0)
 
     # def save(self, save_to):
     #     file = {'arch_params': self.arch_params,

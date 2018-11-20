@@ -39,7 +39,7 @@ class Agent():
         actor_params = dict()
         actor_params['seed'] = seed
         actor_params['arch_params'] = params['arch_params_actor']
-        actor_params['noise_type'] = 'action'
+        actor_params['noise_type'] = params['noise_type']
         actor_params['eps'] = eps
         actor_params['eps_decay'] = eps_decay
         actor_params['min_eps'] = min_eps
