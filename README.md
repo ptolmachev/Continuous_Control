@@ -77,11 +77,14 @@ params['arch_params_critic'] = OrderedDict(
      })
 ```
 ### Performance of a trained agent
+
+The scores plot
+
 <p align="center">
 <img src="https://github.com/ptolmachev/Continuous_Control/blob/master/img/Scores_Reacher.png"/>
 </p>
 
-Gif Demonstration of a behaviour of a trained Agent
+Gif demonstration of a trained Agent
 <p align="center">
 <img src="https://github.com/ptolmachev/Continuous_Control/blob/master/img/Reacher_20.gif"/>
 </p>
