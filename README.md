@@ -1,5 +1,4 @@
-# Continuous_Control
-
+# Continuous Control with Reinforcment Learning
 
 ### Introduction
 This directory contains  the implementation of DDPG (Deep Deterministic Policy Gradient) algorithm appliied to various OpenAI gym environments (*Pendullum-v0*, *MountainCarContinuous-v0*; see information about the environments [here](https://github.com/openai/gym/wiki/Leaderboard)), as well as to Unity Environment *Reacher* (description may be found [here](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher))
