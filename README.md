@@ -21,12 +21,12 @@ The QNetwork then evaluates this action given the state (So the networks accepts
 ### Code organisation
 The implementation is stored in the folder 'src', which includes:
 - `interact_and_train.py`- the main file, to run the training of reinforcment learning agent. It includes hyperparameters and fucntion 'interact_and_train' which creates the instances of an Environmet and an Agent and runs their interaction. This file also includes all the hyperparameters
-- `Agent.py` - contains the implementation of an agent. 
-- `ReplayBuffer.py` - implementation of internal buffer to sample the experiences from it.
-- `QNetwork.py` - an ANN to evaluate q-function.
-- `Policy.py` - an ANN to evaluate q-function.
+- `Agent.py` - contains the implementation of an Agent. 
+- `ReplayBuffer.py` - implementation of internal buffer to sample the experiences.
+- `QNetwork.py` - an ANN to evaluate Q-function.
+- `Policy.py` - an ANN to chose an action given the state.
 - `plotter.py` - generates the plot of scores acquired during the training.
-- `run_one_time.py` - Initialises an agent with specified state dictionary and architecture and run visualisation of the agent's performance.
+- `run_one_time.py` - initializes an Agent with specified state dictionary and architecture and run visualisation of the Agent's performance.
 - `unity_env.py` - wrapper to run Unity Environments using the same code as for OpenAi gym Environments
 
 ### Hyperparameters
