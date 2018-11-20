@@ -92,5 +92,5 @@ Gif Demonstration of a behaviour of a trained Agent
 - One may try to make the policy network to return the parameters (mean and variance) of the probability distribution from which the action is sampled. Then we may use the mean of the distribution for the update in QNetwork. 
 - Reward Shaping for decreasing the jitter of arm (penalizing the Agent for unnessesary movements to make the Agent act smoother). 
 - Of course there is always some space for further hyper-parameter tuning.
-- Implementing the PPO (Proximal Policy Optimization) or TRPO (Trusted Region Policy Optimization) and comparing it to DDPG. It's been suggested, that the PPO-family algorithms work better for continuous control.
+- Implementing the PPO (Proximal Policy Optimization [see here](https://arxiv.org/abs/1707.06347)) or TRPO (Trust Region Policy Optimization, [more info here](https://arxiv.org/abs/1502.05477)) and comparing it to DDPG. It's been suggested, that the PPO-family algorithms work better for continuous control.
 
