@@ -83,7 +83,7 @@ params['arch_params_critic'] = OrderedDict(
 
 Gif Demonstration of a behaviour of a trained Agent
 <p align="center">
-<img src="https://github.com/ptolmachev/Continuous_Control/blob/master/img/Reacher_20"/>
+<img src="https://github.com/ptolmachev/Continuous_Control/blob/master/img/Reacher_20.gif"/>
 </p>
 
 
