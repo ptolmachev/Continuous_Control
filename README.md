@@ -31,7 +31,6 @@ The implementation is stored in the folder 'src', which includes:
 
 ### Hyperparameters
 To solve the Reacher environment the following parameters have been used:
-
 ```python
 # PARAMETERS
 params = dict()
@@ -56,6 +55,8 @@ params['noise_type'] = 'action'     # noise type; can be 'action' or 'parameter'
 params['save_to'] = ('../results/' + env_name) # where to save the results to
 params['threshold'] = 38            # the score above which the network parameters are saved
 
+
+#parameters for the Policy (actor) network
 params['arch_params_actor'] = OrderedDict(
         {'state_and_action_dims': (params['state_dim'], params['action_dim']),
          'layers': {
@@ -65,7 +66,7 @@ params['arch_params_actor'] = OrderedDict(
              'Tanh_1': None
          }
          })
-
+#parameters for the QNetwork (critic) network
 params['arch_params_critic'] = OrderedDict(
     {'state_and_action_dims': (params['state_dim'], params['action_dim']),
      'layers': {
@@ -75,9 +76,15 @@ params['arch_params_critic'] = OrderedDict(
      }
      })
 ```
-
 ### Performance of a trained agent
+<p align="center">
+<img src="https://github.com/ptolmachev/Continuous_Control/blob/master/img/Scores_Reacher.png"/>
+</p>
 
+Gif Demonstration of a behaviour of a trained Agent
+<p align="center">
+<img src="https://github.com/ptolmachev/Continuous_Control/blob/master/img/Reacher_20"/>
+</p>
 
 
 ### Suggested further improvements
