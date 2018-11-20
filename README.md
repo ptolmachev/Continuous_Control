@@ -12,7 +12,9 @@ The pseudocode for this algorithm can be summarised as following:
 </p>
 
 The idea behind the algorithm:
-Given the state of an Agent in the Environment, the Policy network returns an action sampled from the continuous action space slightly perturbed by noise for the exploration purposes. 
+
+Given the state of an Agent in the Environment, the Policy network returns an action from the continuous action space slightly perturbed by noise for the exploration purposes. 
+
 The QNetwork then evaluates this action given the state (So the networks accepts concatenated vector state-action and returns a single value).
 
 
@@ -28,7 +30,51 @@ The implementation is stored in the folder 'src', which includes:
 - `unity_env.py` - wrapper to run Unity Environments using the same code as for OpenAi gym Environments
 
 ### Hyperparameters
+To solve the Reacher environment the following parameters have been used:
 
+```python
+# PARAMETERS
+params = dict()
+params['action_dim'] = len(env.action_space.low)
+params['state_dim'] = len(observation_space.low)
+params['num_episodes'] = 200        #number of episodes for agent to interact with the environment
+params['buffer_size'] = int(1e6)    # replay buffer size
+params['batch_size'] = 128          # minibatch size
+params['gamma'] = 0.99              # discount factor
+params['tau'] = 1e-2                # for soft update of target parameters
+params['eps'] = 0.8                 # exploration factor (modifies noise)
+params['min_eps'] = 0.001           # min level of noise
+min_e = params['min_eps']
+e = params['eps']
+N = params['num_episodes']
+params['eps_decay'] = np.exp(np.log(min_e/e)/(0.8*N)) #decay of the level of the noise after each episode
+params['lr'] = 1e-3                 # learning rate
+params['update_every'] = 2          # how often to update the network (every update_every timestep)
+params['seed'] = random.randint(0,1000)
+params['max_t'] = 1000              # restriction on max number of timesteps per each episodes
+params['noise_type'] = 'action'     # noise type; can be 'action' or 'parameter'
+params['save_to'] = ('../results/' + env_name) # where to save the results to
+params['threshold'] = 38            # the score above which the network parameters are saved
+
+params['arch_params_actor'] = OrderedDict(
+        {'state_and_action_dims': (params['state_dim'], params['action_dim']),
+         'layers': {
+             'Linear_1': 128,   'ReLU_1': None,
+             'Linear_2': 64,  'ReLU_2': None,
+             'Linear_3': params['action_dim'],
+             'Tanh_1': None
+         }
+         })
+
+params['arch_params_critic'] = OrderedDict(
+    {'state_and_action_dims': (params['state_dim'], params['action_dim']),
+     'layers': {
+         'Linear_1': 128, 'ReLU_1': None,
+         'Linear_2': 64, 'ReLU_2': None,
+         'Linear_3': params['action_dim']
+     }
+     })
+```
 
 ### Performance of a trained agent
 
