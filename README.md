@@ -18,7 +18,7 @@ Given the state of an Agent in the Environment, the Policy network returns an ac
 The QNetwork then evaluates this action given the state (So the networks accepts concatenated vector state-action and returns a single value).
 
 
-### Code organisation
+### Code organization
 The implementation is stored in the folder 'src', which includes:
 - `interact_and_train.py`- the main file, to run the training of reinforcment learning agent. It includes hyperparameters and fucntion 'interact_and_train' which creates the instances of an Environmet and an Agent and runs their interaction. This file also includes all the hyperparameters
 - `Agent.py` - contains the implementation of an Agent. 
