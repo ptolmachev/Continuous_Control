@@ -2,7 +2,7 @@
 
 
 ### Introduction
-This directory contains  the implementation of DDPG (Deep Deterministic Policy Gradient) algorithm appliied to various OpenAI gym environments (*Pendullum-v0*, *MountainCarContinuous-v0*; see information about the environments [here](https://github.com/openai/gym/wiki/Leaderboard)), as well as to Unity Environment *Reacher* (description may be found [here](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher)
+This directory contains  the implementation of DDPG (Deep Deterministic Policy Gradient) algorithm appliied to various OpenAI gym environments (*Pendullum-v0*, *MountainCarContinuous-v0*; see information about the environments [here](https://github.com/openai/gym/wiki/Leaderboard)), as well as to Unity Environment *Reacher* (description may be found [here](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher))
 
 The DDPG algorithm was firstly presented in the papaer [Lillicrap et. al](https://arxiv.org/abs/1509.02971).
 The pseudocode for this algorithm can be summarised as following:
