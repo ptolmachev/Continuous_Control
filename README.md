@@ -19,6 +19,7 @@ In this environment, a double-jointed arm can move to target locations. A reward
 For detailed Python environment setup (PyTorch, the ML-Agents toolkit, and a few more Python packages) please follow these steps: [link](https://github.com/udacity/deep-reinforcement-learning#dependencies)
 
 PreBuild Unity Environment:
+
 Linux: [20 agents](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Linux.zip), [1 agent](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Linux.zip)
 
 Windows x32: [20 agents](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86.zip), [1 agent](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Windows_x86.zip)
@@ -40,7 +41,32 @@ Given the state of an Agent in the Environment, the Policy network returns an ac
 
 The QNetwork then evaluates this action given the state (So the networks accepts concatenated vector state-action and returns a single value).
 
-CODE OF THE ESSENCE OF THE ALGORITHM
+```python
+    def update_Qnet_and_policy(self, experiences):
+        states, actions, rewards, next_states, dones = experiences
+        next_actions, next_actions_perturbed = self.actor_target(next_states)
+        Q_targets_next = self.critic_target(next_states, next_actions)
+        Q_targets = rewards + (self.__gamma*Q_targets_next*(1 - dones))  
+        Q_expected = self.critic_local(states, actions)
+        loss_func = nn.MSELoss()
+        loss_critic = loss_func(Q_expected, Q_targets.detach())
+
+        self.optimizer_critic.zero_grad()
+        loss_critic.backward()
+        self.optimizer_critic.step()
+
+        predicted_actions, predicted_actions_perturbed = self.actor_local(states) 
+        # ^ new predicted actions, not the ones stored in buffer
+
+        loss_actor = -self.critic_local(states, predicted_actions).mean()
+
+        self.optimizer_actor.zero_grad()
+        loss_actor.backward()
+        self.optimizer_actor.step()
+
+        self.soft_update(self.critic_local, self.critic_target)
+        self.soft_update(self.actor_local, self.actor_target)
+```
 
 ### Code organization
 The implementation is stored in the folder 'src', which includes:
