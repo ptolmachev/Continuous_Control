@@ -3,7 +3,6 @@
 ### Introduction
 This directory contains  the implementation of DDPG (Deep Deterministic Policy Gradient) algorithm applied to Unity Environment *Reacher*. 
 
-Gif demonstration of a trained Agent
 <p align="center">
 <img src="https://github.com/ptolmachev/Continuous_Control/blob/master/img/Reacher.gif"/>
 </p>
@@ -21,8 +20,11 @@ For detailed Python environment setup (PyTorch, the ML-Agents toolkit, and a few
 
 PreBuild Unity Environment:
 Linux:[20 agents](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Linux.zip), [1 agent](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Linux.zip)
+
 Windows x32:[20 agents](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86.zip), [1 agent](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Windows_x86.zip)
+
 Windows x64:[20 agents](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86_64.zip), [1 agent](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Windows_x86_64.zip)
+
 Mac: [20 agents](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher.app.zip), [1 agent](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher.app.zip)
 
 ### Theoretical background
