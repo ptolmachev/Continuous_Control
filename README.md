@@ -3,6 +3,11 @@
 ### Introduction
 This directory contains  the implementation of DDPG (Deep Deterministic Policy Gradient) algorithm applied to Unity Environment *Reacher*. 
 
+Gif demonstration of a trained Agent
+<p align="center">
+<img src="https://github.com/ptolmachev/Continuous_Control/blob/master/img/Reacher.gif"/>
+</p>
+
 In this environment, a double-jointed arm can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal the agent is to maintain its position at the target location for as many time steps as possible. Detailed description may be found [here](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher))
 
 *State space* is 33 dimensional vector with real numbers, consisting of position, rotation, velocity, and angular velocities of the arm.
@@ -14,8 +19,11 @@ In this environment, a double-jointed arm can move to target locations. A reward
 ### Installation
 For detailed Python environment setup (PyTorch, the ML-Agents toolkit, and a few more Python packages) please follow these steps: [link](https://github.com/udacity/deep-reinforcement-learning#dependencies)
 
-what packages are needed
-how to deploy your code
+PreBuild Unity Environment:
+Linux:[20 agents](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Linux.zip), [1 agent](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Linux.zip)
+Windows x32:[20 agents](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86.zip), [1 agent](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Windows_x86.zip)
+Windows x64:[20 agents](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86_64.zip), [1 agent](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Windows_x86_64.zip)
+Mac: [20 agents](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher.app.zip), [1 agent](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher.app.zip)
 
 ### Theoretical background
 The DDPG algorithm was firstly presented in the papaer [Lillicrap et. al](https://arxiv.org/abs/1509.02971).
