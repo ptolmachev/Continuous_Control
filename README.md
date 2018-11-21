@@ -54,7 +54,8 @@ The QNetwork then evaluates this action given the state (So the networks accepts
         # ^ get target q-function value for the current states and actions
         
         Q_expected = self.critic_local(states, actions)
-        # ^ get the estimation of q-function value for the current states and actions according to critic network
+        # ^ get the estimation of q-function value for the current states and actions according 
+        # to critic network
         
         loss_func = nn.MSELoss()
         loss_critic = loss_func(Q_expected, Q_targets.detach())
