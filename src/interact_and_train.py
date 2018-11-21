@@ -64,7 +64,8 @@ def interact_and_train(Agent, Env, params):
             score += np.mean(rewards)  # get the reward
             if (np.any(dones) == True) or (t == max_t):
                 break
-        Agent.update_eps()
+        if params['noise_type'] == 'action':
+            Agent.update_eps()
         scores.append(score)
         scores_window.append(score)
 
@@ -82,14 +83,24 @@ def interact_and_train(Agent, Env, params):
 
 # ENVIRONMENT
 
-# 20 agents# Uncomment the lines below to run training in environment with 20 agent
-env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux_20/Reacher.x86_64',
+
+# Crawler# Uncomment the lines below to run training Crawler
+env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Crawler_Linux/Crawler.x86_64',
           'worker_id' : 0,
           'seed' : 1234,
           'visual_mode' : False,
           'multiagent_mode' : True}
 env_name = 'Reacher'
 env = UnityEnv(env_params)
+
+# # 20 agents# Uncomment the lines below to run training in environment with 20 agent
+# env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux_20/Reacher.x86_64',
+#           'worker_id' : 0,
+#           'seed' : 1234,
+#           'visual_mode' : False,
+#           'multiagent_mode' : True}
+# env_name = 'Reacher'
+# env = UnityEnv(env_params)
 
 # One agent# Uncomment the lines below to run training in environment with 1 agent
 # env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux/Reacher.x86_64',
@@ -112,41 +123,47 @@ observation_space = env.observation_space
 params = dict()
 params['action_dim'] = len(env.action_space.low)
 params['state_dim'] = len(observation_space.low)
-params['num_episodes'] = 200        #number of episodes for agent to interact with the environment
+params['num_episodes'] = 2000        #number of episodes for agent to interact with the environment
 params['buffer_size'] = int(1e6)    # replay buffer size
 params['batch_size'] = 128          # minibatch size
 params['gamma'] = 0.99              # discount factor
-params['tau'] = 1e-2                # for soft update of target parameters
-params['eps'] = 0.8                 # exploration factor (modifies noise)
+params['tau'] = 1e-2               # for soft update of target parameters
+params['eps'] = 0.8                # exploration factor (modifies noise)
 params['min_eps'] = 0.001           # min level of noise
 min_e = params['min_eps']
 e = params['eps']
 N = params['num_episodes']
 params['eps_decay'] = np.exp(np.log(min_e/e)/(0.8*N)) #decay of the level of the noise after each episode
-params['lr'] = 1e-3                 # learning rate
+params['lr'] = 5e-4                 # learning rate
 params['update_every'] = 2          # how often to update the network (every update_every timestep)
 params['seed'] = random.randint(0,1000)
-params['max_t'] = 1000              # restriction on max number of timesteps per each episodes
+params['max_t'] = 10000              # restriction on max number of timesteps per each episodes
 params['noise_type'] = 'action'     # noise type; can be 'action' or 'parameter'
 params['save_to'] = ('../results/' + env_name) # where to save the results to
-params['threshold'] = 38            # the score above which the network parameters are saved
+params['threshold'] = 39            # the score above which the network parameters are saved
 
+
+#parameters for the Policy (actor) network
 params['arch_params_actor'] = OrderedDict(
         {'state_and_action_dims': (params['state_dim'], params['action_dim']),
          'layers': {
-             'Linear_1': 128,   'ReLU_1': None,
-             'Linear_2': 64,  'ReLU_2': None,
-             'Linear_3': params['action_dim'],
+             'Linear_1': 512, 'LayerNorm_1' : None,  'ReLU_1': None,
+             'Linear_2': 256, 'LayerNorm_2' : None,  'ReLU_2': None,
+             'Linear_3': 128, 'LayerNorm_3' : None,  'ReLU_3': None,
+             'Linear_4': 64, 'LayerNorm_4' : None,  'ReLU_4': None,
+             'Linear_5': params['action_dim'], 'LayerNorm_5': None,
              'Tanh_1': None
          }
          })
-
+#parameters for the QNetwork (critic) network
 params['arch_params_critic'] = OrderedDict(
     {'state_and_action_dims': (params['state_dim'], params['action_dim']),
      'layers': {
-         'Linear_1': 128, 'ReLU_1': None,
-         'Linear_2': 64, 'ReLU_2': None,
-         'Linear_3': params['action_dim']
+         'Linear_1': 512, 'ReLU_1': None,
+         'Linear_2': 256, 'ReLU_2': None,
+         'Linear_3': 128, 'ReLU_3': None,
+         'Linear_4': 64,  'ReLU_4': None,
+         'Linear_5': params['action_dim']
      }
      })
 
@@ -161,4 +178,4 @@ scores = interact_and_train(RL_Agent, env, params)
 pickle.dump(scores, open(params['save_to'] + '.pkl', 'wb+'))
 
 #PLOT THE RESULTS
-plotter(scores, threshold = 30)
+plotter(scores, threshold = 600)

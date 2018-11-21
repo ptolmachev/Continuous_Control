@@ -49,9 +49,11 @@ class Policy(nn.Module):
 
         elif self.__noise_type == 'parameter':
             self.network_params_perturbations = dict()
-            for name, parameter in self.named_parameters():
-                if 'weight' in name:
-                    self.network_params_perturbations[name] = OUNoise(tuple(parameter.shape))
+            for i in range(len(self.layers)):
+                if not ('Linear' in str(type(self.layers[i]))):
+                    i += 1
+                else:
+                    self.network_params_perturbations[i] = OUNoise(tuple(self.layers[i].weight.shape))
         else:
             assert ValueError('Got an unspecified type of noise. The only available options are \'parameter\' and \'action\'')
 
@@ -66,26 +68,24 @@ class Policy(nn.Module):
             y_perturbed = y + self.eps*torch.from_numpy(self.__rand_process.noise()).float()
             return y, torch.clamp(y_perturbed, min = -1.0, max = 1.0)
 
-
         elif self.__noise_type == 'parameter':
             y = state.float()
             y_perturbed = state.float()
-            i = -1
-            for name, parameter in self.named_parameters():
-                if 'weight' in name:
-                    if parameter.shape[1] == y.shape[0]: #if there is a single state
-                        y = parameter.matmul(y)
-                        n = torch.from_numpy(self.network_params_perturbations[name].noise()).float()
-                        y_perturbed = (parameter + self.eps*n).matmul(y_perturbed)
-                    else:                                #if there is a batch of states
-                        y = y.matmul(parameter.t())
-                        n = torch.from_numpy(self.network_params_perturbations[name].noise()).float()
-                        y_perturbed = y_perturbed.matmul((parameter + self.eps*n).t())
-                if 'bias' in name:
-                    y = y + parameter
-                    y_perturbed = y_perturbed + (parameter)
-                    i += 2
-                    y = self.layers[i](y).float()
+            for i in range(len(self.layers)):
+                if not ('Linear' in str(type(self.layers[i]))):
+                    y = self.layers[i](y).float() #layernorm
                     y_perturbed = self.layers[i](y_perturbed).float()
-
-            return y, torch.clamp(y_perturbed, min = -1.0, max = 1.0)
+                else:
+                    #weights
+                    if (self.layers[i].weight).shape[1] == y.shape[0]: #if there is a single state
+                        y = (self.layers[i].weight).matmul(y)
+                        n = torch.from_numpy(self.network_params_perturbations[i].noise()).float()
+                        y_perturbed = ((self.layers[i].weight) + self.eps*n).matmul(y_perturbed)
+                    else:                                              #if there is a batch of states
+                        y = y.matmul((self.layers[i].weight).t())
+                        n = torch.from_numpy(self.network_params_perturbations[i].noise()).float()
+                        y_perturbed = y_perturbed.matmul(((self.layers[i].weight) + self.eps*n).t())
+                    #biases
+                    y = y + (self.layers[i].bias)
+                    y_perturbed = y_perturbed + (self.layers[i].bias)
+            return y, y_perturbed

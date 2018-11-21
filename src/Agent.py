@@ -78,6 +78,16 @@ class Agent():
         self.optimizer_critic.step()
 
         predicted_actions, predicted_actions_perturbed = self.actor_local(states) # new predicted actions, not the ones stored in buffer
+
+        if self.params['noise_type'] == 'parameter':
+            #if the distance between predicted_actions and predicted_actions_perturbed is too big (>=0.2) then update noise
+            if (predicted_actions-predicted_actions_perturbed).pow(2).mean() >= 0.3:
+                self.actor_local.eps /= 1.01
+                self.actor_target.eps /= 1.01
+            else:
+                self.actor_local.eps *= 1.01
+                self.actor_target.eps *= 1.01
+
         loss_actor = -self.critic_local(states, predicted_actions).mean()
 
         self.optimizer_actor.zero_grad()

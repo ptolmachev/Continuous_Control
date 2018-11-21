@@ -9,7 +9,7 @@ def plotter(scores, threshold):
     xs = threshold*np.ones(len(scores))
     plt.xkcd()
     plt.plot(xs,'k--', linewidth = 2)
-    plt.plot(savgol_filter(scores,51,3), linewidth = 3, color = 'Red')
+    plt.plot(savgol_filter(scores,11,3), linewidth = 3, color = 'Red')
 
     plt.title("Gathered reward per episode")
     plt.xlabel("Number of an episode")
@@ -17,5 +17,5 @@ def plotter(scores, threshold):
     plt.grid(True)
     plt.show()
 
-# scores = pickle.load(open('scores_Reacher', 'rb+'))
-# plotter(scores)
+# scores = pickle.load(open('../results/Reacher.pkl', 'rb+'))
+# plotter(scores, 30)
