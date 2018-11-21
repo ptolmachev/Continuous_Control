@@ -41,7 +41,8 @@ Given the state of an Agent in the Environment, the Policy network returns an ac
 
 The QNetwork then evaluates this action given the state (So the networks accepts concatenated vector state-action and returns a single value).
 
-The corresponding implementation of abovementioned algorithm is stated below with the auxiliary comments 
+The corresponding implementation of abovementioned algorithm is stated below with the auxiliary comments:
+
 ```python
     def update_Qnet_and_policy(self, experiences):
         states, actions, rewards, next_states, dones = experiences 
