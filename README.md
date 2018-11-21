@@ -43,7 +43,9 @@ The QNetwork then evaluates this action given the state (So the networks accepts
 
 ```python
     def update_Qnet_and_policy(self, experiences):
-        states, actions, rewards, next_states, dones = experiences #sample random experiences from the memory
+        states, actions, rewards, next_states, dones = experiences 
+        # ^ sample random experiences from the memory
+        
         next_actions, next_actions_perturbed = self.actor_target(next_states) 
         # ^ get actions from the next states according to target policy
         
