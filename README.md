@@ -1,7 +1,7 @@
 # Continuous Control with Reinforcment Learning
 
 ### Introduction
-This directory contains  the implementation of DDPG (Deep Deterministic Policy Gradient) algorithm applied to Unity Environment *Reacher*. 
+This directory contains the implementation of DDPG (Deep Deterministic Policy Gradient) algorithm applied to Unity Environment *Reacher*. 
 
 <p align="center">
 <img src="https://github.com/ptolmachev/Continuous_Control/blob/master/img/Reacher.gif"/>
@@ -43,29 +43,38 @@ The QNetwork then evaluates this action given the state (So the networks accepts
 
 ```python
     def update_Qnet_and_policy(self, experiences):
-        states, actions, rewards, next_states, dones = experiences
-        next_actions, next_actions_perturbed = self.actor_target(next_states)
-        Q_targets_next = self.critic_target(next_states, next_actions)
+        states, actions, rewards, next_states, dones = experiences #sample random experiences from the memory
+        next_actions, next_actions_perturbed = self.actor_target(next_states) 
+        # ^ get actions from the next states according to target policy
+        
+        Q_targets_next = self.critic_target(next_states, next_actions) 
+        # ^ evaluate the q-function for the next states and next actions
+        
         Q_targets = rewards + (self.__gamma*Q_targets_next*(1 - dones))  
+        # ^ get target q-function value for the current states and actions
+        
         Q_expected = self.critic_local(states, actions)
+        # ^ get the estimation of q-function value for the current states and actions according to critic network
+        
         loss_func = nn.MSELoss()
         loss_critic = loss_func(Q_expected, Q_targets.detach())
+        # ^ define the loss functions for critic
 
         self.optimizer_critic.zero_grad()
         loss_critic.backward()
         self.optimizer_critic.step()
+        # ^ update the critic network (q-network)
 
         predicted_actions, predicted_actions_perturbed = self.actor_local(states) 
-        # ^ new predicted actions, not the ones stored in buffer
+        # ^ get new predicted actions, not the ones stored in buffer
 
         loss_actor = -self.critic_local(states, predicted_actions).mean()
+         # ^ define the loss functions for actor
 
         self.optimizer_actor.zero_grad()
         loss_actor.backward()
         self.optimizer_actor.step()
-
-        self.soft_update(self.critic_local, self.critic_target)
-        self.soft_update(self.actor_local, self.actor_target)
+        # ^ update the actor network (policy)
 ```
 
 ### Code organization
@@ -129,7 +138,7 @@ params['arch_params_critic'] = OrderedDict(
 ### Performance of a trained agent
 To demonstrate the results, I have chosen the environment Reacher, and trained it in the multimagent mode. 
 
-The scores plot
+The scores plot:
 
 <p align="center">
 <img src="https://github.com/ptolmachev/Continuous_Control/blob/master/img/Scores_Reacher.png"/>
