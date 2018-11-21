@@ -1,7 +1,12 @@
 # Continuous Control with Reinforcment Learning
 
 ### Introduction
-This directory contains  the implementation of DDPG (Deep Deterministic Policy Gradient) algorithm appliied to various OpenAI gym environments (*Pendullum-v0*, *MountainCarContinuous-v0*; see information about the environments [here](https://github.com/openai/gym/wiki/Leaderboard)), as well as to Unity Environment *Reacher* (description may be found [here](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher))
+This directory contains  the implementation of DDPG (Deep Deterministic Policy Gradient) algorithm applied to Unity Environment *Reacher* (detailed description may be found [here](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher))
+
+THE ENVIRONMENT DESCRIPTION HERE
+what it is
+rewards
+when it is solved
 
 The DDPG algorithm was firstly presented in the papaer [Lillicrap et. al](https://arxiv.org/abs/1509.02971).
 The pseudocode for this algorithm can be summarised as following:
@@ -14,6 +19,11 @@ The idea behind the algorithm:
 Given the state of an Agent in the Environment, the Policy network returns an action from the continuous action space slightly perturbed by noise for the exploration purposes. 
 
 The QNetwork then evaluates this action given the state (So the networks accepts concatenated vector state-action and returns a single value).
+
+### Installation
+
+what packages are needed
+how to deploy your code
 
 
 ### Code organization
@@ -75,6 +85,7 @@ params['arch_params_critic'] = OrderedDict(
      })
 ```
 ### Performance of a trained agent
+To demonstrate the results, I have chosen the environment Reacher, and trained it in the multimagent mode. 
 
 The scores plot
 
