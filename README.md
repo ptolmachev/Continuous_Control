@@ -139,9 +139,9 @@ params['arch_params_critic'] = OrderedDict(
      })
 ```
 ### Performance of a trained agent
-To demonstrate the results, I have chosen the environment Reacher, and trained it in the multimagent mode. 
+To demonstrate the results, I've trained the Reacher in the multiagent mode. 
 
-The scores plot for training Reacher in the multiagent mode:
+The scores plot for training Reacher:
 
 <p align="center">
 <img src="https://github.com/ptolmachev/Continuous_Control/blob/master/img/Scores_Reacher.png"/>
