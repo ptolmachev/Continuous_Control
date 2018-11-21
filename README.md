@@ -1,13 +1,23 @@
 # Continuous Control with Reinforcment Learning
 
 ### Introduction
-This directory contains  the implementation of DDPG (Deep Deterministic Policy Gradient) algorithm applied to Unity Environment *Reacher* (detailed description may be found [here](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher))
+This directory contains  the implementation of DDPG (Deep Deterministic Policy Gradient) algorithm applied to Unity Environment *Reacher*. 
 
-THE ENVIRONMENT DESCRIPTION HERE
-what it is
-rewards
-when it is solved
+In this environment, a double-jointed arm can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal the agent is to maintain its position at the target location for as many time steps as possible. Detailed description may be found [here](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher))
 
+*State space* is 33 dimensional vector with real numbers, consisting of position, rotation, velocity, and angular velocities of the arm.
+
+*Action space* is 4 dimentional vector with real numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
+
+*Solution criteria*: the environment is considered to be solved when the agent gets an average score of +30 over 100 consecutive episodes (averaged over all agents in case of multiagent environment).
+
+### Installation
+For detailed Python environment setup (PyTorch, the ML-Agents toolkit, and a few more Python packages) please follow these steps: [link](https://github.com/udacity/deep-reinforcement-learning#dependencies)
+
+what packages are needed
+how to deploy your code
+
+### Theoretical background
 The DDPG algorithm was firstly presented in the papaer [Lillicrap et. al](https://arxiv.org/abs/1509.02971).
 The pseudocode for this algorithm can be summarised as following:
 <p align="center">
@@ -21,12 +31,6 @@ Given the state of an Agent in the Environment, the Policy network returns an ac
 The QNetwork then evaluates this action given the state (So the networks accepts concatenated vector state-action and returns a single value).
 
 CODE OF THE ESSENCE OF THE ALGORITHM
-
-### Installation
-
-what packages are needed
-how to deploy your code
-
 
 ### Code organization
 The implementation is stored in the folder 'src', which includes:
