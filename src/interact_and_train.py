@@ -85,16 +85,16 @@ def interact_and_train(Agent, Env, params):
 
 
 # Crawler# Uncomment the lines below to run training Crawler
-env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Crawler_Linux/Crawler.x86_64',
-          'worker_id' : 0,
-          'seed' : 1234,
-          'visual_mode' : False,
-          'multiagent_mode' : True}
-env_name = 'Reacher'
-env = UnityEnv(env_params)
+# env_params = {'path' : '../Crawler_Linux/Crawler.x86_64',
+#           'worker_id' : 0,
+#           'seed' : 1234,
+#           'visual_mode' : False,
+#           'multiagent_mode' : True}
+# env_name = 'Crawler'
+# env = UnityEnv(env_params)
 
 # # 20 agents# Uncomment the lines below to run training in environment with 20 agent
-# env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux_20/Reacher.x86_64',
+# env_params = {'path' : '../Reacher_Linux_20/Reacher.x86_64',
 #           'worker_id' : 0,
 #           'seed' : 1234,
 #           'visual_mode' : False,
@@ -103,7 +103,7 @@ env = UnityEnv(env_params)
 # env = UnityEnv(env_params)
 
 # One agent# Uncomment the lines below to run training in environment with 1 agent
-# env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux/Reacher.x86_64',
+# env_params = {'path' : '../Reacher_Linux/Reacher.x86_64',
 #           'worker_id' : 0,
 #           'seed' : 1234,
 #           'visual_mode' : False,
