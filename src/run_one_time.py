@@ -63,7 +63,7 @@ def run_episode_in_test_mode(Agent, Env, max_t):
 # env_name = 'Reacher'
 # env = UnityEnv(env_params)
 #
-env_params = {'path' : '/home/pavel/PycharmProjects/Continuous_Control/Reacher_Linux/Reacher.x86_64',
+env_params = {'path' : '../Reacher_Linux/Reacher.x86_64',
           'worker_id' : 0,
           'seed' : np.random.randint(1000),
           'visual_mode' : False,
